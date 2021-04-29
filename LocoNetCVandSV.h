@@ -2,12 +2,13 @@
 #define   __LOCONET_CV_AND_SV_H__
 
 #define ARDUINO_SERIAL_NUMBER_LEN 9u
-#define MANUFACTURER_ID   13     // DIY Manufacturer Id
-#define DEVELOPER_ID      42     // EdR (?)
-#define PRODUCT_ID         1     // LocoServo
-#define VERSION          001     // Version
-#define DEFAULT_NODE_ID_L 0x00
-#define DEFAULT_NODE_ID_H 0x01
+#define MANUFACTURER_ID           13     // DIY Manufacturer Id
+#define DEVELOPER_ID              42     // EdR (?)
+#define PRODUCT_ID                 1     // LocoServo
+#define VERSION                  001     // Version
+#define DEFAULT_NODE_ID_L       0x00
+#define DEFAULT_NODE_ID_H       0x01
+
 // EEPROM Offset where begins our configuration.
 #define EEPROM_SERVO_OFFSET  ((SV_ADDR_USER_BASE)-2)
 
@@ -16,9 +17,9 @@
 //Adresses of Drivers
 #define SERVO_DRIVER_0_ADDRESS 0x40
 
-
 // #define SERVO_DRIVER_1_ADDRESS 0x41
 // etc...
+
 #define MAX_NUM_DRIVERS   12
 #define SERVOS_PER_DRIVER 16
 

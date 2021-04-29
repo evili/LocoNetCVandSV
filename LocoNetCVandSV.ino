@@ -10,8 +10,8 @@
 #define LOCONET_TX_PIN 7
 #define LNCV_COUNT 16
 
-#define ARTNR 5001
-
+// PCA9685
+#define ARTNR 9685 
 
 lnMsg *LnPacket;
 
@@ -200,7 +200,7 @@ int8_t notifyLNCVread(uint16_t ArtNr, uint16_t lncvAddress, uint16_t,
   // All ReadRequests contain the ARTNR. For starting programming, we do not accept the broadcast address.
   if (programmingMode) {
     if (ArtNr == ARTNR) {
-      if (lncvAddress < 16) {
+      if (lncvAddress < LNCV_COUNT) {
         lncvValue = lncv[lncvAddress];
         Serial.print(" LNCV Value: ");
         Serial.print(lncvValue);
@@ -255,14 +255,13 @@ int8_t notifyLNCVwrite(uint16_t ArtNr, uint16_t lncvAddress,
   if (ArtNr == ARTNR) {
     Serial.print("Artnr OK, ");
 
-    if (lncvAddress < 16) {
+    if (lncvAddress < LNCV_COUNT) {
       lncv[lncvAddress] = lncvValue;
       return LNCV_LACK_OK;
     }
     else {
       return LNCV_LACK_ERROR_UNSUPPORTED;
     }
-
   }
   else {
     Serial.print("Artnr Invalid.\n");
